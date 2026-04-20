@@ -2,248 +2,319 @@
   <defs>
     <style>
       .body-outline { fill: #1a1a1a; stroke: #404040; stroke-width: 0.5; }
+      .muscle-definition { fill: none; stroke: #2a2a2a; stroke-width: 0.3; }
+      .nipple { fill: #2d1a1a; }
+      .genital-detail { fill: #1a1a1a; stroke: #404040; stroke-width: 0.4; }
       .clickable-region { fill: transparent; stroke: none; cursor: pointer; transition: all 0.2s; }
       .clickable-region:hover { fill: rgba(139, 0, 0, 0.3); stroke: #8B0000; stroke-width: 1; }
       .clickable-region.selected { fill: rgba(139, 0, 0, 0.5); stroke: #8B0000; stroke-width: 1.5; }
     </style>
   </defs>
 
-  <!-- Realistic Male Body Outline - Front View -->
+  <!-- Medically Accurate Male Body - Front View -->
   <g class="body-outline">
-    <!-- Head -->
-    <ellipse cx="150" cy="50" rx="28" ry="35"/>
+    <!-- Head with facial features -->
+    <ellipse cx="150" cy="45" rx="30" ry="38"/>
+    <path d="M 135 78 Q 150 82, 165 78" class="muscle-definition"/> <!-- Jawline -->
 
-    <!-- Neck -->
-    <path d="M 130 83 L 128 105 L 172 105 L 170 83 Z"/>
+    <!-- Neck with sternocleidomastoid muscles -->
+    <path d="M 132 83 Q 130 95, 128 105 L 172 105 Q 170 95, 168 83 Z"/>
+    <path d="M 140 83 Q 138 95, 137 105" class="muscle-definition"/>
+    <path d="M 160 83 Q 162 95, 163 105" class="muscle-definition"/>
 
-    <!-- Torso with natural curves -->
+    <!-- Shoulders with deltoid definition -->
     <path d="
       M 95 105
-      Q 88 115, 85 130
-      L 82 160
-      Q 80 185, 82 200
-      L 85 230
-      Q 87 250, 90 265
-      L 92 290
-      Q 93 310, 95 325
+      Q 85 110, 78 120
+      Q 72 130, 70 142
+      L 82 148
+      Q 88 142, 95 138
+      Z
+    "/> <!-- Left deltoid -->
+
+    <path d="
+      M 205 105
+      Q 215 110, 222 120
+      Q 228 130, 230 142
+      L 218 148
+      Q 212 142, 205 138
+      Z
+    "/> <!-- Right deltoid -->
+
+    <!-- Torso with defined pectorals -->
+    <path d="
+      M 95 105
+      L 85 120
+      Q 82 135, 82 148
+      L 80 180
+      Q 78 200, 80 220
+      L 83 255
+      Q 86 280, 92 305
+      L 95 325
+      L 112 325
+      Q 115 315, 118 305
+      L 130 290
+      Q 138 282, 145 280
+      L 155 280
+      Q 162 282, 170 290
+      L 182 305
+      Q 185 315, 188 325
       L 205 325
-      Q 207 310, 208 290
-      L 210 265
-      Q 213 250, 215 230
-      L 218 200
-      Q 220 185, 218 160
-      L 215 130
-      Q 212 115, 205 105
+      L 208 305
+      Q 214 280, 217 255
+      L 220 220
+      Q 222 200, 220 180
+      L 218 148
+      Q 218 135, 215 120
+      L 205 105
       Z
     "/>
 
-    <!-- Left Arm -->
+    <!-- Left pectoral with natural bulge -->
     <path d="
       M 95 115
-      L 72 125
-      Q 60 135, 55 155
-      L 50 195
-      Q 48 220, 47 245
-      L 45 285
-      Q 44 310, 43 330
-      L 42 355
-      Q 41 370, 40 385
-      L 38 405
-      L 46 408
-      L 48 385
-      Q 49 370, 50 355
-      L 52 330
-      Q 53 310, 54 285
-      L 56 245
-      Q 57 220, 59 195
-      L 64 155
-      Q 69 135, 81 125
+      Q 88 122, 85 132
+      Q 82 142, 82 152
+      L 83 165
+      Q 86 172, 95 175
+      L 125 178
+      Q 135 175, 140 168
+      L 142 152
+      Q 142 138, 138 128
+      Q 132 118, 122 112
+      L 95 115
       Z
-    "/>
+    " class="body-outline"/>
 
-    <!-- Right Arm -->
+    <!-- Right pectoral with natural bulge -->
     <path d="
       M 205 115
-      L 228 125
-      Q 240 135, 245 155
-      L 250 195
-      Q 252 220, 253 245
-      L 255 285
-      Q 256 310, 257 330
-      L 258 355
-      Q 259 370, 260 385
-      L 262 405
-      L 254 408
-      L 252 385
-      Q 251 370, 250 355
-      L 248 330
-      Q 247 310, 246 285
-      L 244 245
-      Q 243 220, 241 195
-      L 236 155
-      Q 231 135, 219 125
+      Q 212 122, 215 132
+      Q 218 142, 218 152
+      L 217 165
+      Q 214 172, 205 175
+      L 175 178
+      Q 165 175, 160 168
+      L 158 152
+      Q 158 138, 162 128
+      Q 168 118, 178 112
+      L 205 115
+      Z
+    " class="body-outline"/>
+
+    <!-- Nipples -->
+    <circle cx="110" cy="145" r="3.5" class="nipple"/>
+    <circle cx="190" cy="145" r="3.5" class="nipple"/>
+
+    <!-- Abdominal definition (6-pack) -->
+    <path d="M 135 185 Q 150 183, 165 185" class="muscle-definition"/> <!-- Upper abs -->
+    <path d="M 137 205 Q 150 203, 163 205" class="muscle-definition"/>
+    <path d="M 138 225 Q 150 223, 162 225" class="muscle-definition"/>
+    <path d="M 140 245 Q 150 243, 160 245" class="muscle-definition"/>
+    <path d="M 150 180 L 150 255" class="muscle-definition"/> <!-- Linea alba -->
+
+    <!-- Obliques -->
+    <path d="M 110 200 Q 115 215, 120 235" class="muscle-definition"/>
+    <path d="M 190 200 Q 185 215, 180 235" class="muscle-definition"/>
+
+    <!-- Navel -->
+    <ellipse cx="150" cy="245" rx="4" ry="3" class="nipple"/>
+
+    <!-- Pelvis and groin region -->
+    <path d="
+      M 120 270
+      Q 115 285, 115 300
+      L 118 315
+      L 135 315
+      Q 138 310, 140 305
+      L 160 305
+      Q 162 310, 165 315
+      L 182 315
+      L 185 300
+      Q 185 285, 180 270
+      Z
+    " class="muscle-definition"/>
+
+    <!-- Penis (flaccid, anatomically accurate) -->
+    <g class="genital-detail">
+      <path d="
+        M 145 315
+        L 143 330
+        Q 142 340, 142 348
+        Q 142 353, 144 356
+        L 156 356
+        Q 158 353, 158 348
+        Q 158 340, 157 330
+        L 155 315
+        Z
+      "/>
+      <!-- Glans -->
+      <ellipse cx="150" cy="356" rx="7" ry="6"/>
+    </g>
+
+    <!-- Scrotum -->
+    <g class="genital-detail">
+      <ellipse cx="145" cy="364" rx="8" ry="11"/>
+      <ellipse cx="155" cy="364" rx="8" ry="11"/>
+      <path d="M 150 353 L 150 373" class="muscle-definition"/>
+    </g>
+
+    <!-- Left Arm with muscle definition -->
+    <path d="
+      M 95 115
+      L 78 120
+      L 70 142
+      Q 62 155, 58 172
+      Q 56 185, 55 198
+      L 53 230
+      Q 52 252, 51 272
+      L 50 302
+      Q 49 325, 48 345
+      L 47 375
+      Q 46 392, 45 405
+      L 53 408
+      L 55 390
+      Q 56 372, 57 350
+      L 58 315
+      Q 59 288, 61 262
+      L 64 225
+      Q 66 205, 69 188
+      Q 73 168, 78 152
+      L 85 132
+      L 95 115
       Z
     "/>
 
-    <!-- Left Leg -->
+    <!-- Right Arm with muscle definition -->
     <path d="
-      M 105 325
-      L 102 380
-      Q 100 420, 98 460
-      L 96 520
-      Q 95 560, 94 600
-      L 92 660
-      Q 91 700, 90 740
-      L 88 770
-      L 95 773
-      L 102 773
-      L 104 770
-      Q 105 700, 106 660
-      L 108 600
-      Q 109 560, 110 520
-      L 112 460
-      Q 114 420, 116 380
-      L 119 325
+      M 205 115
+      L 222 120
+      L 230 142
+      Q 238 155, 242 172
+      Q 244 185, 245 198
+      L 247 230
+      Q 248 252, 249 272
+      L 250 302
+      Q 251 325, 252 345
+      L 253 375
+      Q 254 392, 255 405
+      L 247 408
+      L 245 390
+      Q 244 372, 243 350
+      L 242 315
+      Q 241 288, 239 262
+      L 236 225
+      Q 234 205, 231 188
+      Q 227 168, 222 152
+      L 215 132
+      L 205 115
       Z
     "/>
 
-    <!-- Right Leg -->
+    <!-- Bicep bulges -->
+    <path d="M 68 145 Q 64 155, 63 168" class="muscle-definition"/>
+    <path d="M 232 145 Q 236 155, 237 168" class="muscle-definition"/>
+
+    <!-- Left Leg with quadriceps definition -->
     <path d="
-      M 195 325
-      L 198 380
-      Q 200 420, 202 460
-      L 204 520
-      Q 205 560, 206 600
-      L 208 660
-      Q 209 700, 210 740
-      L 212 770
-      L 205 773
-      L 198 773
-      L 196 770
-      Q 195 700, 194 660
-      L 192 600
-      Q 191 560, 190 520
-      L 188 460
-      Q 186 420, 184 380
-      L 181 325
+      M 112 325
+      L 110 360
+      Q 108 395, 106 430
+      L 104 480
+      Q 102 520, 100 558
+      L 98 605
+      Q 96 650, 94 692
+      L 92 735
+      L 90 770
+      L 97 773
+      L 104 773
+      L 106 765
+      Q 108 725, 110 685
+      L 112 640
+      Q 114 595, 116 550
+      L 118 500
+      Q 120 455, 122 410
+      L 124 365
+      L 126 325
       Z
     "/>
+
+    <!-- Right Leg with quadriceps definition -->
+    <path d="
+      M 188 325
+      L 190 360
+      Q 192 395, 194 430
+      L 196 480
+      Q 198 520, 200 558
+      L 202 605
+      Q 204 650, 206 692
+      L 208 735
+      L 210 770
+      L 203 773
+      L 196 773
+      L 194 765
+      Q 192 725, 190 685
+      L 188 640
+      Q 186 595, 184 550
+      L 182 500
+      Q 180 455, 178 410
+      L 176 365
+      L 174 325
+      Z
+    "/>
+
+    <!-- Knee definition -->
+    <ellipse cx="102" cy="580" rx="10" ry="8" class="muscle-definition"/>
+    <ellipse cx="198" cy="580" rx="10" ry="8" class="muscle-definition"/>
+
+    <!-- Calf muscles -->
+    <path d="M 100 600 Q 96 630, 94 660" class="muscle-definition"/>
+    <path d="M 200 600 Q 204 630, 206 660" class="muscle-definition"/>
+
+    <!-- Ankle definition -->
+    <path d="M 95 745 Q 93 755, 93 765" class="muscle-definition"/>
+    <path d="M 205 745 Q 207 755, 207 765" class="muscle-definition"/>
   </g>
 
-  <!-- Clickable Placement Regions -->
+  <!-- Clickable Placement Regions (same as before for functionality) -->
   <g class="clickable-regions">
-    <!-- Neck -->
     <path id="neck-front" class="clickable-region" d="M 130 83 L 128 105 L 172 105 L 170 83 Z"/>
-
-    <!-- Upper Chest -->
     <rect id="upper-chest" class="clickable-region" x="110" y="105" width="80" height="30"/>
-
-    <!-- Sternum/Center Chest -->
     <rect id="sternum" class="clickable-region" x="135" y="115" width="30" height="55"/>
-
-    <!-- Left Pec -->
     <path id="left-pec" class="clickable-region" d="M 95 115 Q 85 125, 85 145 L 85 165 Q 88 170, 100 168 L 130 165 Q 135 160, 135 145 L 135 120 Q 120 115, 105 115 Z"/>
-
-    <!-- Right Pec -->
     <path id="right-pec" class="clickable-region" d="M 205 115 Q 215 125, 215 145 L 215 165 Q 212 170, 200 168 L 170 165 Q 165 160, 165 145 L 165 120 Q 180 115, 195 115 Z"/>
-
-    <!-- Lower Chest -->
     <rect id="lower-chest" class="clickable-region" x="110" y="170" width="80" height="30"/>
-
-    <!-- Left Outer Bicep -->
     <path id="left-outer-bicep" class="clickable-region" d="M 72 125 L 60 145 L 56 175 L 63 175 L 67 145 L 79 125 Z"/>
-
-    <!-- Right Outer Bicep -->
     <path id="right-outer-bicep" class="clickable-region" d="M 228 125 L 240 145 L 244 175 L 237 175 L 233 145 L 221 125 Z"/>
-
-    <!-- Left Inner Bicep -->
     <path id="left-inner-bicep" class="clickable-region" d="M 79 125 L 85 145 L 87 175 L 80 175 L 75 145 L 70 125 Z"/>
-
-    <!-- Right Inner Bicep -->
     <path id="right-inner-bicep" class="clickable-region" d="M 221 125 L 215 145 L 213 175 L 220 175 L 225 145 L 230 125 Z"/>
-
-    <!-- Left Outer Forearm -->
     <path id="left-outer-forearm" class="clickable-region" d="M 55 185 L 50 235 L 47 285 L 54 285 L 57 235 L 62 185 Z"/>
-
-    <!-- Right Outer Forearm -->
     <path id="right-outer-forearm" class="clickable-region" d="M 245 185 L 250 235 L 253 285 L 246 285 L 243 235 L 238 185 Z"/>
-
-    <!-- Left Inner Forearm -->
     <path id="left-inner-forearm" class="clickable-region" d="M 62 185 L 67 235 L 70 285 L 63 285 L 60 235 L 57 185 Z"/>
-
-    <!-- Right Inner Forearm -->
     <path id="right-inner-forearm" class="clickable-region" d="M 238 185 L 233 235 L 230 285 L 237 285 L 240 235 L 243 185 Z"/>
-
-    <!-- Left Wrist Outer -->
     <rect id="left-wrist-outer" class="clickable-region" x="43" y="295" width="10" height="30"/>
-
-    <!-- Right Wrist Outer -->
     <rect id="right-wrist-outer" class="clickable-region" x="247" y="295" width="10" height="30"/>
-
-    <!-- Left Wrist Inner -->
     <rect id="left-wrist-inner" class="clickable-region" x="53" y="295" width="10" height="30"/>
-
-    <!-- Right Wrist Inner -->
     <rect id="right-wrist-inner" class="clickable-region" x="237" y="295" width="10" height="30"/>
-
-    <!-- Left Hand -->
     <path id="left-hand" class="clickable-region" d="M 38 335 L 38 395 L 56 395 L 56 335 Z"/>
-
-    <!-- Right Hand -->
     <path id="right-hand" class="clickable-region" d="M 244 335 L 244 395 L 262 395 L 262 335 Z"/>
-
-    <!-- Left Ribs -->
     <rect id="left-ribs" class="clickable-region" x="82" y="200" width="28" height="60"/>
-
-    <!-- Right Ribs -->
     <rect id="right-ribs" class="clickable-region" x="190" y="200" width="28" height="60"/>
-
-    <!-- Left Hip -->
     <rect id="left-hip" class="clickable-region" x="85" y="265" width="28" height="50"/>
-
-    <!-- Right Hip -->
     <rect id="right-hip" class="clickable-region" x="187" y="265" width="28" height="50"/>
-
-    <!-- Left Outer Thigh -->
     <path id="left-outer-thigh" class="clickable-region" d="M 102 330 L 98 420 L 96 490 L 103 490 L 107 420 L 111 330 Z"/>
-
-    <!-- Right Outer Thigh -->
     <path id="right-outer-thigh" class="clickable-region" d="M 198 330 L 202 420 L 204 490 L 197 490 L 193 420 L 189 330 Z"/>
-
-    <!-- Left Inner Thigh -->
     <path id="left-inner-thigh" class="clickable-region" d="M 111 330 L 115 420 L 117 490 L 110 490 L 106 420 L 102 330 Z"/>
-
-    <!-- Right Inner Thigh -->
     <path id="right-inner-thigh" class="clickable-region" d="M 189 330 L 185 420 L 183 490 L 190 490 L 194 420 L 198 330 Z"/>
-
-    <!-- Left Front Thigh -->
     <path id="left-front-thigh" class="clickable-region" d="M 105 340 L 103 430 L 101 500 L 108 500 L 110 430 L 112 340 Z"/>
-
-    <!-- Right Front Thigh -->
     <path id="right-front-thigh" class="clickable-region" d="M 195 340 L 197 430 L 199 500 L 192 500 L 190 430 L 188 340 Z"/>
-
-    <!-- Left Outer Calf -->
     <path id="left-outer-calf" class="clickable-region" d="M 96 520 L 94 630 L 90 720 L 97 720 L 101 630 L 103 520 Z"/>
-
-    <!-- Right Outer Calf -->
     <path id="right-outer-calf" class="clickable-region" d="M 204 520 L 206 630 L 210 720 L 203 720 L 199 630 L 197 520 Z"/>
-
-    <!-- Left Inner Calf -->
     <path id="left-inner-calf" class="clickable-region" d="M 103 520 L 105 630 L 107 720 L 100 720 L 98 630 L 96 520 Z"/>
-
-    <!-- Right Inner Calf -->
     <path id="right-inner-calf" class="clickable-region" d="M 197 520 L 195 630 L 193 720 L 200 720 L 202 630 L 204 520 Z"/>
-
-    <!-- Left Ankle Outer -->
     <rect id="left-ankle-outer" class="clickable-region" x="88" y="740" width="10" height="25"/>
-
-    <!-- Right Ankle Outer -->
     <rect id="right-ankle-outer" class="clickable-region" x="202" y="740" width="10" height="25"/>
-
-    <!-- Left Ankle Inner -->
     <rect id="left-ankle-inner" class="clickable-region" x="98" y="740" width="10" height="25"/>
-
-    <!-- Right Ankle Inner -->
     <rect id="right-ankle-inner" class="clickable-region" x="192" y="740" width="10" height="25"/>
   </g>
 </svg>
