@@ -1,0 +1,97 @@
+<svg viewBox="0 0 200 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .body-outline { fill: #1a1a1a; stroke: #404040; stroke-width: 1; }
+      .clickable-region { fill: transparent; stroke: none; cursor: pointer; transition: all 0.2s; }
+      .clickable-region:hover { fill: rgba(139, 0, 0, 0.3); }
+      .clickable-region.selected { fill: rgba(139, 0, 0, 0.5); }
+    </style>
+  </defs>
+
+  <!-- Body Outline -->
+  <g class="body-outline">
+    <!-- Head -->
+    <ellipse cx="100" cy="35" rx="16" ry="20"/>
+
+    <!-- Neck -->
+    <path d="M 90 53 L 90 68 L 110 68 L 110 53 Z"/>
+
+    <!-- Torso (feminine shape) -->
+    <path d="M 78 68 Q 72 95 72 120 Q 72 140 75 155 L 78 180 Q 78 200 82 215 L 85 245 L 78 270 L 72 295 L 78 320 L 122 320 L 128 295 L 122 270 L 115 245 L 118 215 Q 122 200 122 180 L 125 155 Q 128 140 128 120 Q 128 95 122 68 Z"/>
+
+    <!-- Left Arm (slimmer) -->
+    <path d="M 78 75 L 60 85 L 48 145 L 45 195 L 43 245 L 41 275 L 38 295 L 42 305 L 49 305 L 51 275 L 53 245 L 55 195 L 58 145 L 70 85 Z"/>
+
+    <!-- Right Arm (slimmer) -->
+    <path d="M 122 75 L 140 85 L 152 145 L 155 195 L 157 245 L 159 275 L 162 295 L 158 305 L 151 305 L 149 275 L 147 245 L 145 195 L 142 145 L 130 85 Z"/>
+
+    <!-- Left Leg -->
+    <path d="M 82 320 L 80 375 L 78 435 L 76 475 L 74 492 L 79 496 L 85 496 L 87 492 L 89 475 L 91 435 L 93 375 L 95 320 Z"/>
+
+    <!-- Right Leg -->
+    <path d="M 118 320 L 120 375 L 122 435 L 124 475 L 126 492 L 121 496 L 115 496 L 113 492 L 111 475 L 109 435 L 107 375 L 105 320 Z"/>
+  </g>
+
+  <!-- Clickable Regions -->
+  <g class="clickable-regions">
+    <!-- Neck -->
+    <path id="neck" class="clickable-region" d="M 90 53 L 90 68 L 110 68 L 110 53 Z"/>
+
+    <!-- Chest -->
+    <rect id="chest" class="clickable-region" x="78" y="72" width="44" height="42"/>
+
+    <!-- Left Upper Arm -->
+    <path id="upper-arm-left" class="clickable-region" d="M 60 85 L 48 135 L 55 135 L 67 85 Z"/>
+
+    <!-- Right Upper Arm -->
+    <path id="upper-arm-right" class="clickable-region" d="M 140 85 L 152 135 L 145 135 L 133 85 Z"/>
+
+    <!-- Left Forearm -->
+    <path id="forearm-left" class="clickable-region" d="M 48 145 L 45 215 L 52 215 L 55 145 Z"/>
+
+    <!-- Right Forearm -->
+    <path id="forearm-right" class="clickable-region" d="M 152 145 L 155 215 L 148 215 L 145 145 Z"/>
+
+    <!-- Left Wrist -->
+    <rect id="wrist-left" class="clickable-region" x="41" y="245" width="12" height="25"/>
+
+    <!-- Right Wrist -->
+    <rect id="wrist-right" class="clickable-region" x="147" y="245" width="12" height="25"/>
+
+    <!-- Left Hand -->
+    <path id="hand-left" class="clickable-region" d="M 38 275 L 38 305 L 49 305 L 49 275 Z"/>
+
+    <!-- Right Hand -->
+    <path id="hand-right" class="clickable-region" d="M 151 275 L 151 305 L 162 305 L 162 275 Z"/>
+
+    <!-- Left Ribs -->
+    <rect id="ribs-left" class="clickable-region" x="72" y="125" width="18" height="45"/>
+
+    <!-- Right Ribs -->
+    <rect id="ribs-right" class="clickable-region" x="110" y="125" width="18" height="45"/>
+
+    <!-- Left Hip -->
+    <rect id="hip-left" class="clickable-region" x="72" y="195" width="20" height="45"/>
+
+    <!-- Right Hip -->
+    <rect id="hip-right" class="clickable-region" x="108" y="195" width="20" height="45"/>
+
+    <!-- Left Outer Thigh -->
+    <path id="outer-thigh-left" class="clickable-region" d="M 80 325 L 78 395 L 85 395 L 87 325 Z"/>
+
+    <!-- Right Outer Thigh -->
+    <path id="outer-thigh-right" class="clickable-region" d="M 120 325 L 122 395 L 115 395 L 113 325 Z"/>
+
+    <!-- Left Calf -->
+    <path id="calf-left" class="clickable-region" d="M 78 405 L 76 465 L 82 465 L 84 405 Z"/>
+
+    <!-- Right Calf -->
+    <path id="calf-right" class="clickable-region" d="M 122 405 L 124 465 L 118 465 L 116 405 Z"/>
+
+    <!-- Left Ankle -->
+    <rect id="ankle-left" class="clickable-region" x="74" y="475" width="13" height="17"/>
+
+    <!-- Right Ankle -->
+    <rect id="ankle-right" class="clickable-region" x="113" y="475" width="13" height="17"/>
+  </g>
+</svg>

@@ -18,12 +18,11 @@ export default function Home() {
             transition={{ duration: 1, ease: 'easeOut' }}
             className="space-y-8"
           >
-            <h1 className="text-6xl md:text-8xl font-light tracking-widest text-white">
+            <h1 className="text-7xl md:text-9xl font-light tracking-[0.3em] text-white">
               INK
             </h1>
-            <p className="text-xl md:text-2xl text-gray-400 font-light max-w-2xl">
-              Where art meets skin. Custom tattoo designs crafted with precision
-              and passion.
+            <p className="text-lg md:text-xl text-gray-400 font-light max-w-2xl tracking-wide">
+              Where art meets skin. Custom tattoo designs crafted with precision.
             </p>
             <motion.div
               initial={{ opacity: 0 }}
@@ -32,7 +31,7 @@ export default function Home() {
             >
               <Link
                 href="/booking"
-                className="inline-block px-8 py-4 border border-white/20 text-white hover:bg-white hover:text-black transition-all duration-300 rounded-sm tracking-wider text-sm"
+                className="inline-block px-10 py-4 border border-red-800 text-white hover:bg-red-900 hover:border-red-700 transition-all duration-300 tracking-widest text-sm"
               >
                 BOOK CONSULTATION
               </Link>
@@ -49,9 +48,9 @@ export default function Home() {
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2"
+              className="w-6 h-10 border-2 border-white/20 rounded-full flex items-start justify-center p-2"
             >
-              <motion.div className="w-1 h-2 bg-white/50 rounded-full" />
+              <motion.div className="w-1 h-2 bg-white/40 rounded-full" />
             </motion.div>
           </motion.div>
         </section>
@@ -68,16 +67,16 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="max-w-3xl mx-auto space-y-8"
           >
-            <h2 className="text-4xl md:text-5xl font-light text-white tracking-wider">
+            <h2 className="text-4xl md:text-5xl font-light text-white tracking-[0.2em]">
               READY TO START?
             </h2>
-            <p className="text-lg text-gray-400">
+            <p className="text-lg text-gray-400 tracking-wide">
               Use our interactive booking tool to visualize your tattoo placement
-              and get started on your custom design.
+              and schedule your consultation.
             </p>
             <Link
               href="/booking"
-              className="inline-block px-10 py-5 bg-white text-black hover:bg-gray-200 transition-all duration-300 rounded-sm tracking-wider text-sm font-medium"
+              className="inline-block px-12 py-5 bg-red-800 text-white hover:bg-red-700 transition-all duration-300 tracking-widest text-sm font-medium"
             >
               BOOK NOW
             </Link>

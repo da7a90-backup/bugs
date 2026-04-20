@@ -8,7 +8,6 @@ export default function Background() {
   const [windowSize, setWindowSize] = useState({ width: 1920, height: 1080 })
 
   useEffect(() => {
-    // Set initial window size
     setWindowSize({
       width: window.innerWidth,
       height: window.innerHeight,
@@ -26,68 +25,48 @@ export default function Background() {
   }, [])
 
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden bg-black">
-      {/* Base gradient */}
+    <div className="fixed inset-0 -z-10 overflow-hidden bg-[#0a0a0a]">
+      {/* Subtle gradient */}
       <motion.div
-        className="absolute inset-0 opacity-40"
+        className="absolute inset-0 opacity-30"
         animate={{
           background: [
-            'radial-gradient(circle at 20% 30%, #1a0033 0%, #000000 50%)',
-            'radial-gradient(circle at 80% 70%, #1a0033 0%, #000000 50%)',
-            'radial-gradient(circle at 40% 60%, #1a0033 0%, #000000 50%)',
-            'radial-gradient(circle at 20% 30%, #1a0033 0%, #000000 50%)',
+            'radial-gradient(circle at 20% 30%, #1a0505 0%, #0a0a0a 50%)',
+            'radial-gradient(circle at 80% 70%, #1a0505 0%, #0a0a0a 50%)',
+            'radial-gradient(circle at 20% 30%, #1a0505 0%, #0a0a0a 50%)',
           ],
         }}
-        transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+        transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
       />
 
-      {/* Glitch grid overlay */}
-      <div className="absolute inset-0 opacity-5">
-        <div
-          className="h-full w-full"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)
-            `,
-            backgroundSize: '50px 50px',
-          }}
-        />
-      </div>
-
-      {/* Floating geometric shapes */}
-      {[...Array(8)].map((_, i) => (
+      {/* Minimal geometric shapes */}
+      {[...Array(3)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute"
+          className="absolute opacity-10"
           style={{
-            width: Math.random() * 100 + 50,
-            height: Math.random() * 100 + 50,
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
+            width: 120,
+            height: 120,
+            left: `${25 + i * 30}%`,
+            top: `${20 + i * 25}%`,
           }}
           animate={{
-            x: [0, Math.random() * 100 - 50],
-            y: [0, Math.random() * 100 - 50],
             rotate: [0, 360],
-            opacity: [0.1, 0.3, 0.1],
+            opacity: [0.05, 0.15, 0.05],
           }}
           transition={{
-            duration: 15 + Math.random() * 10,
+            duration: 20 + i * 5,
             repeat: Infinity,
-            ease: 'easeInOut',
-            delay: i * 0.5,
+            ease: 'linear',
           }}
         >
           <div
-            className="h-full w-full border border-purple-500/20"
+            className="h-full w-full border border-red-900/30"
             style={{
               clipPath:
-                i % 3 === 0
+                i % 2 === 0
                   ? 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)'
-                  : i % 3 === 1
-                    ? 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)'
-                    : 'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)',
+                  : 'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)',
             }}
           />
         </motion.div>
@@ -95,40 +74,21 @@ export default function Background() {
 
       {/* Mouse-reactive glow */}
       <motion.div
-        className="pointer-events-none absolute h-96 w-96 rounded-full bg-purple-600/10 blur-3xl"
+        className="pointer-events-none absolute h-80 w-80 rounded-full bg-red-900/5 blur-3xl"
         animate={{
-          x: mousePosition.x * windowSize.width - 192,
-          y: mousePosition.y * windowSize.height - 192,
+          x: mousePosition.x * windowSize.width - 160,
+          y: mousePosition.y * windowSize.height - 160,
         }}
-        transition={{ type: 'spring', damping: 30, stiffness: 200 }}
+        transition={{ type: 'spring', damping: 40, stiffness: 150 }}
       />
 
-      {/* Noise texture overlay */}
+      {/* Subtle noise texture */}
       <div
-        className="absolute inset-0 opacity-20"
+        className="absolute inset-0 opacity-10"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='3' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
         }}
       />
-
-      {/* Glitch lines */}
-      {[...Array(5)].map((_, i) => (
-        <motion.div
-          key={`line-${i}`}
-          className="absolute left-0 right-0 h-px bg-purple-500/20"
-          style={{ top: `${20 * i + 10}%` }}
-          animate={{
-            scaleX: [0, 1, 0],
-            opacity: [0, 0.5, 0],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            delay: i * 2,
-            ease: 'easeInOut',
-          }}
-        />
-      ))}
     </div>
   )
 }

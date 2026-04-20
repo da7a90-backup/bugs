@@ -2,9 +2,9 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import HumanModel3D from './HumanModel3D'
+import BodyMapSelector from './BodyMapSelector'
 import StyleTooltip from './StyleTooltip'
-import { tattooStyles, bodyPlacements } from '@/lib/tattoo-data'
+import { tattooStyles } from '@/lib/tattoo-data'
 
 export default function BookingForm() {
   const [gender, setGender] = useState<'male' | 'female'>('male')
@@ -70,20 +70,20 @@ export default function BookingForm() {
       transition={{ duration: 0.8 }}
       className="max-w-7xl mx-auto"
     >
-      <form onSubmit={handleSubmit} className="space-y-8">
+      <form onSubmit={handleSubmit} className="space-y-12">
         {/* Gender Selection */}
-        <div className="space-y-3">
-          <label className="block text-lg font-light text-white tracking-wide">
-            SELECT MODEL
+        <div className="space-y-4">
+          <label className="block text-lg font-light text-white tracking-widest">
+            SELECT BODY TYPE
           </label>
           <div className="flex gap-4">
             <button
               type="button"
               onClick={() => setGender('male')}
-              className={`flex-1 py-4 px-6 rounded-lg border transition-all ${
+              className={`flex-1 py-4 px-6 rounded border transition-all ${
                 gender === 'male'
-                  ? 'border-purple-500 bg-purple-500/20 text-white'
-                  : 'border-white/20 text-gray-400 hover:border-white/40'
+                  ? 'border-red-800 bg-red-900/20 text-white'
+                  : 'border-white/10 text-gray-400 hover:border-white/30'
               }`}
             >
               Male
@@ -91,10 +91,10 @@ export default function BookingForm() {
             <button
               type="button"
               onClick={() => setGender('female')}
-              className={`flex-1 py-4 px-6 rounded-lg border transition-all ${
+              className={`flex-1 py-4 px-6 rounded border transition-all ${
                 gender === 'female'
-                  ? 'border-purple-500 bg-purple-500/20 text-white'
-                  : 'border-white/20 text-gray-400 hover:border-white/40'
+                  ? 'border-red-800 bg-red-900/20 text-white'
+                  : 'border-white/10 text-gray-400 hover:border-white/30'
               }`}
             >
               Female
@@ -102,32 +102,25 @@ export default function BookingForm() {
           </div>
         </div>
 
-        {/* 3D Model */}
-        <div className="space-y-3">
-          <label className="block text-lg font-light text-white tracking-wide">
+        {/* Body Map Selector */}
+        <div className="space-y-4">
+          <label className="block text-lg font-light text-white tracking-widest">
             SELECT PLACEMENT
           </label>
-          <HumanModel3D
+          <BodyMapSelector
             gender={gender}
             selectedPlacement={placement}
             size={size}
             onPlacementSelect={setPlacement}
           />
-          {placement && (
-            <p className="text-sm text-purple-400">
-              Selected:{' '}
-              {bodyPlacements.find((p) => p.value === placement)?.name ||
-                placement}
-            </p>
-          )}
         </div>
 
         {/* Size Slider */}
-        <div className="space-y-3">
-          <label className="block text-lg font-light text-white tracking-wide">
+        <div className="space-y-4">
+          <label className="block text-lg font-light text-white tracking-widest">
             TATTOO SIZE: {size} INCHES
           </label>
-          <div className="space-y-2">
+          <div className="space-y-3">
             <input
               type="range"
               min="1"
@@ -135,7 +128,10 @@ export default function BookingForm() {
               step="0.5"
               value={size}
               onChange={(e) => setSize(parseFloat(e.target.value))}
-              className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-purple-500"
+              className="w-full h-1 bg-white/10 rounded-lg appearance-none cursor-pointer accent-red-800"
+              style={{
+                background: `linear-gradient(to right, #7f1d1d 0%, #7f1d1d ${((size - 1) / 11) * 100}%, rgba(255,255,255,0.1) ${((size - 1) / 11) * 100}%, rgba(255,255,255,0.1) 100%)`,
+              }}
             />
             <div className="flex justify-between text-xs text-gray-500">
               <span>1"</span>
@@ -146,15 +142,15 @@ export default function BookingForm() {
         </div>
 
         {/* Style Selection */}
-        <div className="space-y-3">
-          <label className="block text-lg font-light text-white tracking-wide">
+        <div className="space-y-4">
+          <label className="block text-lg font-light text-white tracking-widest">
             SELECT STYLE
           </label>
           <div className="relative">
             <select
               value={style}
               onChange={(e) => setStyle(e.target.value)}
-              className="w-full py-4 px-6 bg-black/30 border border-white/20 rounded-lg text-white appearance-none cursor-pointer focus:border-purple-500 focus:outline-none"
+              className="w-full py-4 px-6 bg-black/40 border border-white/10 rounded text-white appearance-none cursor-pointer focus:border-red-800 focus:outline-none"
               required
             >
               <option value="" disabled>
@@ -185,7 +181,7 @@ export default function BookingForm() {
 
           {/* Style descriptions with tooltips */}
           {style && (
-            <div className="flex items-start gap-2 p-4 bg-purple-500/10 border border-purple-500/30 rounded-lg">
+            <div className="flex items-start gap-2 p-4 bg-red-900/10 border border-red-900/30 rounded">
               <div className="flex-1">
                 <p className="text-sm text-gray-300">
                   {tattooStyles.find((s) => s.name === style)?.description}
@@ -200,7 +196,7 @@ export default function BookingForm() {
 
         {/* Error Message */}
         {error && (
-          <div className="p-4 bg-red-500/10 border border-red-500/30 rounded-lg">
+          <div className="p-4 bg-red-900/10 border border-red-800/30 rounded">
             <p className="text-sm text-red-400">{error}</p>
           </div>
         )}
@@ -209,13 +205,13 @@ export default function BookingForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full py-5 px-8 bg-white text-black hover:bg-gray-200 disabled:bg-gray-600 disabled:text-gray-400 transition-all duration-300 rounded-lg tracking-wider text-sm font-medium"
+          className="w-full py-5 px-8 bg-red-800 text-white hover:bg-red-700 disabled:bg-gray-700 disabled:text-gray-400 transition-all duration-300 rounded tracking-widest text-sm font-medium"
         >
           {isSubmitting ? 'SUBMITTING...' : 'CONTINUE TO BOOKING'}
         </button>
 
         <p className="text-center text-xs text-gray-500">
-          You'll be redirected to Calendly to schedule your consultation
+          You'll be redirected to schedule your consultation
         </p>
       </form>
     </motion.div>

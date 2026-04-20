@@ -1,0 +1,112 @@
+<svg viewBox="0 0 200 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .body-outline { fill: #1a1a1a; stroke: #404040; stroke-width: 1; }
+      .clickable-region { fill: transparent; stroke: none; cursor: pointer; transition: all 0.2s; }
+      .clickable-region:hover { fill: rgba(139, 0, 0, 0.3); }
+      .clickable-region.selected { fill: rgba(139, 0, 0, 0.5); }
+    </style>
+  </defs>
+
+  <!-- Body Outline -->
+  <g class="body-outline">
+    <!-- Head -->
+    <ellipse cx="100" cy="35" rx="18" ry="22"/>
+
+    <!-- Neck -->
+    <path d="M 88 55 L 88 70 L 112 70 L 112 55 Z"/>
+
+    <!-- Back Torso -->
+    <path d="M 75 70 Q 70 100 70 130 L 70 200 Q 70 220 75 230 L 80 270 L 70 300 L 75 320 L 125 320 L 130 300 L 120 270 L 125 230 Q 130 220 130 200 L 130 130 Q 130 100 125 70 Z"/>
+
+    <!-- Left Arm -->
+    <path d="M 75 80 L 55 90 L 45 150 L 42 200 L 40 250 L 38 280 L 35 300 L 40 310 L 48 310 L 50 280 L 52 250 L 54 200 L 57 150 L 67 90 Z"/>
+
+    <!-- Right Arm -->
+    <path d="M 125 80 L 145 90 L 155 150 L 158 200 L 160 250 L 162 280 L 165 300 L 160 310 L 152 310 L 150 280 L 148 250 L 146 200 L 143 150 L 133 90 Z"/>
+
+    <!-- Left Leg -->
+    <path d="M 80 320 L 78 380 L 76 440 L 74 480 L 72 495 L 78 498 L 84 498 L 86 495 L 88 480 L 90 440 L 92 380 L 94 320 Z"/>
+
+    <!-- Right Leg -->
+    <path d="M 120 320 L 122 380 L 124 440 L 126 480 L 128 495 L 122 498 L 116 498 L 114 495 L 112 480 L 110 440 L 108 380 L 106 320 Z"/>
+  </g>
+
+  <!-- Clickable Regions -->
+  <g class="clickable-regions">
+    <!-- Neck (back) -->
+    <path id="neck" class="clickable-region" d="M 88 55 L 88 70 L 112 70 L 112 55 Z"/>
+
+    <!-- Left Shoulder -->
+    <path id="shoulder-left" class="clickable-region" d="M 70 70 L 55 85 L 60 100 L 75 85 Z"/>
+
+    <!-- Right Shoulder -->
+    <path id="shoulder-right" class="clickable-region" d="M 130 70 L 145 85 L 140 100 L 125 85 Z"/>
+
+    <!-- Left Shoulder Blade -->
+    <rect id="shoulder-blade-left" class="clickable-region" x="70" y="90" width="20" height="35"/>
+
+    <!-- Right Shoulder Blade -->
+    <rect id="shoulder-blade-right" class="clickable-region" x="110" y="90" width="20" height="35"/>
+
+    <!-- Upper Back -->
+    <rect id="upper-back" class="clickable-region" x="80" y="75" width="40" height="40"/>
+
+    <!-- Mid Back -->
+    <rect id="mid-back" class="clickable-region" x="80" y="125" width="40" height="50"/>
+
+    <!-- Lower Back -->
+    <rect id="lower-back" class="clickable-region" x="75" y="185" width="50" height="40"/>
+
+    <!-- Spine -->
+    <rect id="spine" class="clickable-region" x="95" y="75" width="10" height="150"/>
+
+    <!-- Left Upper Arm (back) -->
+    <path id="upper-arm-left" class="clickable-region" d="M 55 90 L 45 140 L 52 140 L 62 90 Z"/>
+
+    <!-- Right Upper Arm (back) -->
+    <path id="upper-arm-right" class="clickable-region" d="M 145 90 L 155 140 L 148 140 L 138 90 Z"/>
+
+    <!-- Left Forearm (back) -->
+    <path id="forearm-left" class="clickable-region" d="M 45 150 L 42 220 L 49 220 L 52 150 Z"/>
+
+    <!-- Right Forearm (back) -->
+    <path id="forearm-right" class="clickable-region" d="M 155 150 L 158 220 L 151 220 L 148 150 Z"/>
+
+    <!-- Left Wrist (back) -->
+    <rect id="wrist-left" class="clickable-region" x="38" y="250" width="14" height="25"/>
+
+    <!-- Right Wrist (back) -->
+    <rect id="wrist-right" class="clickable-region" x="148" y="250" width="14" height="25"/>
+
+    <!-- Left Hand (back) -->
+    <path id="hand-left" class="clickable-region" d="M 35 280 L 35 310 L 48 310 L 48 280 Z"/>
+
+    <!-- Right Hand (back) -->
+    <path id="hand-right" class="clickable-region" d="M 152 280 L 152 310 L 165 310 L 165 280 Z"/>
+
+    <!-- Left Hip (back) -->
+    <rect id="hip-left" class="clickable-region" x="70" y="235" width="20" height="30"/>
+
+    <!-- Right Hip (back) -->
+    <rect id="hip-right" class="clickable-region" x="110" y="235" width="20" height="30"/>
+
+    <!-- Left Outer Thigh (back) -->
+    <path id="outer-thigh-left" class="clickable-region" d="M 78 330 L 76 400 L 83 400 L 85 330 Z"/>
+
+    <!-- Right Outer Thigh (back) -->
+    <path id="outer-thigh-right" class="clickable-region" d="M 122 330 L 124 400 L 117 400 L 115 330 Z"/>
+
+    <!-- Left Calf (back) -->
+    <path id="calf-left" class="clickable-region" d="M 76 410 L 74 470 L 81 470 L 83 410 Z"/>
+
+    <!-- Right Calf (back) -->
+    <path id="calf-right" class="clickable-region" d="M 124 410 L 126 470 L 119 470 L 117 410 Z"/>
+
+    <!-- Left Ankle (back) -->
+    <rect id="ankle-left" class="clickable-region" x="72" y="480" width="14" height="15"/>
+
+    <!-- Right Ankle (back) -->
+    <rect id="ankle-right" class="clickable-region" x="114" y="480" width="14" height="15"/>
+  </g>
+</svg>
