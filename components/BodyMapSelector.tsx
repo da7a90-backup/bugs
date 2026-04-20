@@ -84,7 +84,7 @@ export default function BodyMapSelector({
           <h3 className="text-center text-sm font-light text-white/60 tracking-wider">
             FRONT VIEW
           </h3>
-          <div className="aspect-[2/5] w-full bg-black/20 rounded-lg border border-white/10 p-4 flex items-center justify-center">
+          <div className="aspect-[3/8] w-full bg-black/20 rounded-lg border border-white/10 p-4 flex items-center justify-center">
             {svgFront ? (
               <div
                 id="front-body-map"
@@ -102,7 +102,7 @@ export default function BodyMapSelector({
           <h3 className="text-center text-sm font-light text-white/60 tracking-wider">
             BACK VIEW
           </h3>
-          <div className="aspect-[2/5] w-full bg-black/20 rounded-lg border border-white/10 p-4 flex items-center justify-center">
+          <div className="aspect-[3/8] w-full bg-black/20 rounded-lg border border-white/10 p-4 flex items-center justify-center">
             {svgBack ? (
               <div
                 id="back-body-map"
