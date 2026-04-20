@@ -1,3 +1,5 @@
+'use client'
+
 import Background from '@/components/Background'
 import BookingForm from '@/components/BookingForm'
 import Link from 'next/link'
