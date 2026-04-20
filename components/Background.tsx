@@ -5,8 +5,15 @@ import { useEffect, useState } from 'react'
 
 export default function Background() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [windowSize, setWindowSize] = useState({ width: 1920, height: 1080 })
 
   useEffect(() => {
+    // Set initial window size
+    setWindowSize({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    })
+
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({
         x: e.clientX / window.innerWidth,
@@ -90,8 +97,8 @@ export default function Background() {
       <motion.div
         className="pointer-events-none absolute h-96 w-96 rounded-full bg-purple-600/10 blur-3xl"
         animate={{
-          x: mousePosition.x * window.innerWidth - 192,
-          y: mousePosition.y * window.innerHeight - 192,
+          x: mousePosition.x * windowSize.width - 192,
+          y: mousePosition.y * windowSize.height - 192,
         }}
         transition={{ type: 'spring', damping: 30, stiffness: 200 }}
       />
